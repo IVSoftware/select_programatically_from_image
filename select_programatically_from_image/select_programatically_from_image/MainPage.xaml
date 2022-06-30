@@ -4,8 +4,8 @@
              x:Class="select_programatically_from_image.MainPage">
 
     <Grid>
-        <ListView x:Name="Flist" 
-                  ItemSelected="Flist_ItemSelected"
+        <ListView x:Name="Flist"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                   ItemsSource="{Binding Items}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -20,7 +20,8 @@
                             <ImageButton HeightRequest="33"
                                          WidthRequest="33"
                                          x:Name="delete"
-                                         Clicked="delete_Clicked"                                         
+                                         Command="{Binding DeleteFileWithPromptCommand}"
+                                         CommandParameter="{Binding}"
                                          HorizontalOptions="EndAndExpand" />
                         </StackLayout>
                     </ViewCell>
