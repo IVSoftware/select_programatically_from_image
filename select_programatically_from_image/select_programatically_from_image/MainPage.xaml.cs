@@ -15,16 +15,16 @@ namespace select_programatically_from_image
     {
         public MainPage()
         {
-            BindingContext = new MainFrameBinding();
+            BindingContext = new MainPageBinding();
             InitializeComponent();
             _debug = Flist;
         }
         public static ListView _debug = null;
     }
 
-    class MainFrameBinding : INotifyPropertyChanged
+    class MainPageBinding : INotifyPropertyChanged
     {
-        public MainFrameBinding()
+        public MainPageBinding()
         {
             DataModel.Delete += (sender, e) =>
             {

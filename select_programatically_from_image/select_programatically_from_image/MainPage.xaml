@@ -17,11 +17,11 @@
                                    FontSize="Medium"
                                    TextColor="Blue"
                                    VerticalOptions="Center" />
-                            <ImageButton HeightRequest="33"
+                            <ImageButton Command="{Binding DeleteFileWithPromptCommand}"
+                                         CommandParameter="{Binding}"
+                                         HeightRequest="33"
                                          WidthRequest="33"
                                          x:Name="delete"
-                                         Command="{Binding DeleteFileWithPromptCommand}"
-                                         CommandParameter="{Binding}"
                                          HorizontalOptions="EndAndExpand" />
                         </StackLayout>
                     </ViewCell>
