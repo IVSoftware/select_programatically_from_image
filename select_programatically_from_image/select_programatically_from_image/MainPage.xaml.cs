@@ -18,28 +18,28 @@ namespace select_programatically_from_image
             InitializeComponent();
         }
 
-        private void delete_Clicked(object sender, EventArgs e)
+        private async void delete_Clicked(object sender, EventArgs e)
         {
-            if(sender is ImageButton imageButton)
+            if (sender is ImageButton imageButton)
             {
                 Flist.SelectedItem = imageButton.BindingContext;
+                var fileName = ((DataModel)Flist.SelectedItem).fname;
+                if (await App.Current.MainPage.DisplayAlert(
+                    "delete file",
+                    fileName, accept: "OK",
+                    cancel: "CANCEL"))
+                {
+                    System.Diagnostics.Debug.WriteLine($"DELETED {fileName}");
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("Cancelled!");
+                }
             }
         }
 
         private async void Flist_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var fileName = ((DataModel)e.SelectedItem).fname;
-            if(await App.Current.MainPage.DisplayAlert(
-                "delete file", 
-                fileName, accept: "OK", 
-                cancel: "CANCEL"))
-            {
-                System.Diagnostics.Debug.WriteLine($"DELETED {fileName}");
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Cancelled!");
-            }
         }
     }
 
